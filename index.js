@@ -56,17 +56,22 @@ app.use('/api', routes);
 // Socket.io setup
 setupSocketHandlers(io);
 
-// Database sync and server start
-const PORT = process.env.PORT || 3000;
+// Hapus bagian database sync dan server start, ganti dengan:
+module.exports = server;
 
-sequelize.sync({ force: false })
-  .then(() => {
-    console.log('Database synced successfully');
-    server.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-      console.log(`Allowed CORS origins: ${allowedOrigins.join(', ')}`);
+// Jika dijalankan langsung (bukan di-require)
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+  
+  sequelize.sync({ force: false })
+    .then(() => {
+      console.log('Database synced successfully');
+      server.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+        console.log(`Allowed CORS origins: ${allowedOrigins.join(', ')}`);
+      });
+    })
+    .catch(err => {
+      console.error('Unable to sync database:', err);
     });
-  })
-  .catch(err => {
-    console.error('Unable to sync database:', err);
-  });
+}
