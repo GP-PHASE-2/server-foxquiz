@@ -1,0 +1,30 @@
+{
+ "development": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "quiz_game",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "quiz_game_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+ "production": {
+    "username": "${DB_USER}",
+    "password": "${DB_PASSWORD}",
+    "database": "${DB_NAME}",
+    "host": "${DB_HOST}",
+    "dialect": "postgres",
+    "port": "${DB_PORT}",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
+  }
+}
