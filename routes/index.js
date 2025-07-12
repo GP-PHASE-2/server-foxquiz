@@ -24,16 +24,14 @@ router.get('/rooms/:code', async (req, res) => {
 
 // Get available avatars
 router.get('/avatars', (req, res) => {
-  // Gunakan DiceBear API langsung
+  // Gunakan 6 avatar SVG yang tersedia di folder public
   const avatars = [
-    'https://api.dicebear.com/7.x/bottts/svg?seed=1',
-    'https://api.dicebear.com/7.x/bottts/svg?seed=2',
-    'https://api.dicebear.com/7.x/bottts/svg?seed=3',
-    'https://api.dicebear.com/7.x/bottts/svg?seed=4',
-    'https://api.dicebear.com/7.x/bottts/svg?seed=5',
-    'https://api.dicebear.com/7.x/bottts/svg?seed=6',
-    'https://api.dicebear.com/7.x/bottts/svg?seed=7',
-    'https://api.dicebear.com/7.x/bottts/svg?seed=8',
+    '/avatar1.svg',
+    '/avatar2.svg',
+    '/avatar3.svg',
+    '/avatar4.svg',
+    '/avatar5.svg',
+    '/avatar6.svg'
   ];
   
   res.json(avatars);
