@@ -37,10 +37,9 @@ Retrieve room information by room code.
   "createdAt": "2024-01-01T00:00:00.000Z",
   "updatedAt": "2024-01-01T00:00:00.000Z",
   "Players": [
-    {
-      "id": "socket-id",
+    {      "id": "socket-id",
       "username": "Player1",
-      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=1",
+      "avatar": "😀",
       "score": 0,
       "roomId": "uuid",
       "isHost": true,
@@ -58,19 +57,17 @@ Retrieve room information by room code.
 ### 2. Get Available Avatars
 **GET** `/api/avatars`
 
-Retrieve list of available avatar URLs.
+Retrieve list of available avatar images.
 
 **Response:**
 ```json
 [
-  "https://api.dicebear.com/7.x/bottts/svg?seed=1",
-  "https://api.dicebear.com/7.x/bottts/svg?seed=2",
-  "https://api.dicebear.com/7.x/bottts/svg?seed=3",
-  "https://api.dicebear.com/7.x/bottts/svg?seed=4",
-  "https://api.dicebear.com/7.x/bottts/svg?seed=5",
-  "https://api.dicebear.com/7.x/bottts/svg?seed=6",
-  "https://api.dicebear.com/7.x/bottts/svg?seed=7",
-  "https://api.dicebear.com/7.x/bottts/svg?seed=8"
+  "/avatar1.svg",
+  "/avatar2.svg", 
+  "/avatar3.svg",
+  "/avatar4.svg",
+  "/avatar5.svg",
+  "/avatar6.svg"
 ]
 ```
 
@@ -374,10 +371,9 @@ Sent when an error occurs.
 
 ### Player Model
 ```javascript
-{
-  id: "String (Socket ID, Primary Key)",
+{  id: "String (Socket ID, Primary Key)",
   username: "String",
-  avatar: "String (URL)",
+  avatar: "String (SVG file path)",
   score: "Integer (Default: 0)",
   roomId: "UUID (Foreign Key)",
   isHost: "Boolean (Default: false)",
